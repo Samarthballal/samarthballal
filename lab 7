@@ -1,0 +1,22 @@
+#include <stdio.h>
+#define NUM_SENSORS 6
+int main() 
+{
+    int sensorReadings[NUM_SENSORS] = {25, 30, 28, 55, 32, 29};
+    int faultySensorFound = 0;
+    printf("Sensor Readings:\n");
+    for (int i = 0; i < NUM_SENSORS; i++)
+    {
+        printf("Sensor %d: %d°C\n", i + 1, sensorReadings[i]);
+        if (sensorReadings[i] > 50)
+        {
+            printf("Sensor %d is faulty (reading: %d°C)\n", i + 1, sensorReadings[i]);
+            faultySensorFound = 1; 
+        }
+    }
+    if (!faultySensorFound) 
+    {
+        printf("All sensors are functioning normally.\n");
+    }
+    return 0;
+}
